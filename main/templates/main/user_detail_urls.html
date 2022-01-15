@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% block title %}User's page{% endblock %}
+
+{% block content %}
+    <H1>Page owner {{ request.user }}</H1>
+    {% for d in data %}
+        <p>original url ""{{ d.prime_url }}"", short form ===> </p>
+        <a href="http://127.0.0.1:8000/{{ d.slug }}">http://127.0.0.1:8000/{{ d.slug }}</a>
+    {% endfor %}
+{% endblock %}

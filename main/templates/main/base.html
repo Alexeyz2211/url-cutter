@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<h4><a href="{% url 'account:register' %}">Register</a></h4>
+{% if request.user.is_anonymous %}
+    <h4><a href="{% url 'account:login' %}">Login</a></h4>
+{% endif %}
+{% if request.user.is_authenticated %}
+    <H4><a href="{% url 'account:logout' %}">Logout</a></H4>
+    <H4><a href="{% url 'main:index' %}">Home</a></H4>
+    <H4><a href="{% url 'main:user-page' %}">User page</a></H4>
+{% endif %}
+<body>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
